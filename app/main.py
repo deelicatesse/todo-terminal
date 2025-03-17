@@ -12,12 +12,12 @@ class Task:
         METHOD:
             PASA LA ENTRADA DEL INPUT AL ARRAY
         """
-        create_task= input('add a taesk to do: ')
-        self.todos.append(create_task)
-        return self.todos
+        create_task= input('Add a task to do: ')
+        return create_task
+        #self.todos.append(create_task)
+        #return self.todos
     
-
-    def remove_task(self):
+    def remove_task(self): #NO FUNCIONA CORRECTAMENTE
         """
         -ADD AT THE V1.1
         remote a task method
@@ -31,25 +31,33 @@ class Task:
             print('no hay por borrar')
             return self.todos
         
-        print('Removing a task....')
-        time.sleep(3)
+        #print('Removing a task....')
+        #time.sleep(1)
         removed_task= self.todos.pop()
-        print(f'item removed {removed_task}')
-        return self.todos
-
-
+        #print(t.clear_eol, end=" ")
+        #print(f'item removed {removed_task}')
+        #return self.todos
+        #return removed_task
+    
     def view(self):
         """
         add view
         """
         bg= f'{t.home}{t.on_maroon2}{t.clear}'
-        ms= t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit")))
-        return bg + ms
+        bn= t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit ")))
+        return bg + bn
     
+    def corrector_bg(self):
+        """
+        -Corrige el error del input y rellena el background
+        """
+        func_c= f'{t.on_maroon2}'
+        return func_c
 
 
 def main():
     todos= []
+    # SE CREA LA VENTANA CON EL FONDO Y SE LIMPIA Y AGREGA EL BANNER
     print(f'{t.home}{t.on_maroon2}{t.clear}')
     print(t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit"))))
     """
@@ -58,19 +66,21 @@ def main():
     -V1.2 IS WORKING (FASTAPI, SQLITE, STREAMLIT)
     
     """
-
+    # CREA EL LOOP PARA LA CONDICIONAL DEL INPUT, Y PARA SALIR DE EL
     #with t.cbreak():
     while True:
+            
             # CORRIGE EL ERROR Y LLENA EL FONDO
             print(f'{t.on_maroon2}')
-            add_todo= input('Add a todo: ')
+            add_todo= (input('Add a todo: '))
 
             # CONDICIONAL PARA SALIR
             if add_todo.lower() == ':q':
                 break
             else:
                 # CONDICION PARA CREAR LA LISTA
-                todos.append(f'{add_todo.capitalize()}')
+                #todos.append(f'{t.underline(add_todo.capitalize())}')
+                todos.append(f'{t.underline(add_todo.capitalize())}')
                 # CLEAN THE WIEW
                 print(f'{t.on_maroon2}{t.home}{t.clear}')
                 # RETURN THE MAIN MASSAGE Y SE FIJA
@@ -80,7 +90,7 @@ def main():
                 for i, todo in enumerate(todos, start=1):
                     print(f'{i}. {todo}')
 
-    print('Exit.')
+    print(t.underline('Exit.'))
     print(t.clear)
 
 def test():
@@ -97,63 +107,56 @@ def test():
             else:
                 print('are u sure to follow?')
 
-
-def example_class():
-
-    # VARIABLE A PASAR    
-    todos= []
-
-    # INSTANCIA DE LA CLASS
-    exam= Task(todos)
-    cleaner= exam.view()
-    text_input= exam.input_todo()
-    #rm= exam.remove_task()
-    print(cleaner)
-    print(text_input)
-
-    while True:
-        print(f'{t.on_maroon2}')
-        add_todo= input('Add a todo: ')
-
-        if add_todo.lower() == ':q':
-            break
-        else:
-            todos.append(f'{add_todo.capitalize()}')
-            #todos.append(f'{add_todo.capitalize()}')
-            # CLEAN THE WIEW
-            print(f'{t.on_maroon2}{t.home}{t.clear}')
-            print(t.on_orchid1(t.center(t.bold("Add a task or write ':q' to exit"))))
-
-            # RETURN THE MAIN MASSAGE
-            print(f'{t.on_maroon2}')
-            for i, todo in enumerate(todos, start=1):
-                print(f'{i}. {todo}')
-
 def clases():
     todos= []
     version_v1= Task(todos)
     banner= version_v1.view()
+    """
+    -INIT BANNER
+    """
     print(banner)
-    #print(np_test)
+      
+    """
+    -INIT CONDITIONAL
+    """
+    while True:
+        fill_bg= version_v1.corrector_bg()
+        print(fill_bg)
+        #test_inp= input('-Add a task to do: ')
+        ip= version_v1.input_todo()
+        # ADD CONDITIONAL TO BREAK THE  LOOP
+        #if test_inp == ':q':
+        if ip.lower() == ':q':
+            break
+        #elif ip.lower() == ':rm':
+        #    rmove= version_v1.remove_task() >>>>>>  ARREGLAR PARA LA V1.1 RM METHOD
+        #    print(t.clear, t.normal)
 
-    
+            #-ADD CONDITIONAL TO START THE INPUT TO MAKE TASK
+        else:
+            #todos.append(f'{test_inp.capitalize()}')
+            todos.append(f'{t.on_maroon2}{t.underline(ip.capitalize())}{t.on_maroon2}')
+            
+            print(banner)
+            print(fill_bg)
+            for i, todo in enumerate(todos, start=1):
+                print(f'{i}. {todo}')
+    print("  ")
+    print('Exit...')
+    print("  ")
+    #time.sleep(5)
+    #print(f'{t.normal} + {t.clear}')
 
-
-    
     
 if __name__=='__main__':
-    main()
+    #main()
     #test()
-    #example_class()
-    #clases()
+    clases()
 
-#def examples():C
-    """
-    EXAMPLES
-    """
+# EXAMPLES >>>>>>>>>>
 #print(t.bold('Test')) # bold text
 #print(t.bold_red_on_bright_green('test')) # background green
 #with t.cbreak():
 #        inp= t.inkey() # CAPTURA EL INPUT SI DAR ENTER
 #        print(f'input test: {inp}')    
-#examples()
+
