@@ -25,5 +25,5 @@ python3 main.py
 - Interfaz simple y accesible.
 
 
-## img 
+## Img 
 ![Minimal Todo Manager en uso]()

@@ -1,4 +1,3 @@
-
 from blessed import Terminal
 
 """ 
@@ -19,31 +18,10 @@ class Task:
         create_task= input('Add a task to do: ')
         return create_task
     
-  
-        """
-        -ADD AT THE V1.1
-        remote a task method
-        """
-        #time.sleep(5)
-        """
-        funciona, prodria agregar un inp
-        -para eliminar un index en especifico
-        """
-        if not self.todos: # comprueba si no hay task antes de borrar
-            print('no hay por borrar')
-            return self.todos
-        
-        #print('Removing a task....')
-        #time.sleep(1)
-        removed_task= self.todos.pop()
-        #print(t.clear_eol, end=" ")
-        #print(f'item removed {removed_task}')
-        #return self.todos
-        #return removed_task
     
     def view(self):
         """
-        add view
+        Creadmos el background y el banner 
         """
         bg= f'{t.home}{t.on_maroon2}{t.clear}' # you can change the theme in this line
         bn= t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit "))) 
@@ -51,7 +29,7 @@ class Task:
     
     def corrector_bg(self):
         """
-        -Corrige el error del input y rellena el background
+        -Rellena el background tras agregar una task
         """
         func_c= f'{t.on_maroon2}'
         return func_c
@@ -99,8 +77,3 @@ if __name__=='__main__':
     todo_terminal()
 
 
-    """
-    -v1.0 IS WORKING (CREATE TASK AND BREAK THE LOOP)
-    -V1.1 UNDEFINED (ADD RM METHOD, ADD INSERT METHOD, ?)
-    -V1.2 IS WORKING (FASTAPI, SQLITE, STREAMLIT)
-    """
