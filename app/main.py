@@ -1,8 +1,12 @@
 
-import time
 from blessed import Terminal
-#INSTANCIA PARA PODER TRABAJAR CON BLESSED
+
+""" 
+- INSTANCIA PARA PODER TRABAJAR CON BLESSED
+
+"""
 t= Terminal() 
+
 class Task:
     def __init__(self, todos):
         self.todos= todos
@@ -14,10 +18,8 @@ class Task:
         """
         create_task= input('Add a task to do: ')
         return create_task
-        #self.todos.append(create_task)
-        #return self.todos
     
-    def remove_task(self): #NO FUNCIONA CORRECTAMENTE
+  
         """
         -ADD AT THE V1.1
         remote a task method
@@ -55,59 +57,8 @@ class Task:
         return func_c
 
 
-def main():
-    todos= []
-    # SE CREA LA VENTANA CON EL FONDO Y SE LIMPIA Y AGREGA EL BANNER
-    print(f'{t.home}{t.on_maroon2}{t.clear}')
-    print(t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit"))))
-    """
-    -v1.0 IS WORKING (CREATE TASK AND BREAK THE LOOP)
-    -V1.1 UNDEFINED (ADD RM METHOD, ADD INSERT METHOD, ?)
-    -V1.2 IS WORKING (FASTAPI, SQLITE, STREAMLIT)
-    
-    """
-    # CREA EL LOOP PARA LA CONDICIONAL DEL INPUT, Y PARA SALIR DE EL
-    #with t.cbreak():
-    while True:
-            
-            # CORRIGE EL ERROR Y LLENA EL FONDO
-            print(f'{t.on_maroon2}')
-            add_todo= (input('Add a todo: '))
 
-            # CONDICIONAL PARA SALIR
-            if add_todo.lower() == ':q':
-                break
-            else:
-                # CONDICION PARA CREAR LA LISTA
-                #todos.append(f'{t.underline(add_todo.capitalize())}')
-                todos.append(f'{t.underline(add_todo.capitalize())}')
-                # CLEAN THE WIEW
-                print(f'{t.on_maroon2}{t.home}{t.clear}')
-                # RETURN THE MAIN MASSAGE Y SE FIJA
-                print(t.on_orchid1(t.center(t.bold("Add a task or write ':q' to exit"))))
-                # CLEAN THE WIEW y CORRIGE EL ERROR DEL FONDO
-                print(f'{t.on_maroon2}')
-                for i, todo in enumerate(todos, start=1):
-                    print(f'{i}. {todo}')
-
-    print(t.underline('Exit.'))
-    print(t.clear)
-
-def test():
-    #print(t.clear)
-    print(f'{t.home}{t.on_mediumorchid1}{t.clear}')
-    print(t.black_on_red(t.center("write some text(or write 'q' to stop")))
-    with t.cbreak():
-         while True:
-            val= t.inkey()
-            print(f'You press: {val}')
-            if val == 'q':
-                print(t.clear)
-                break
-            else:
-                print('are u sure to follow?')
-
-def clases():
+def todo_terminal():
     todos= []
     version_v1= Task(todos)
     banner= version_v1.view()
@@ -122,10 +73,8 @@ def clases():
     while True:
         fill_bg= version_v1.corrector_bg()
         print(fill_bg)
-        #test_inp= input('-Add a task to do: ')
         ip= version_v1.input_todo()
-        # ADD CONDITIONAL TO BREAK THE  LOOP
-        #if test_inp == ':q':
+        # ADD CONDITIONAL TO BREAK THE LOOP
         if ip.lower() == ':q':
             break
         #elif ip.lower() == ':rm':
@@ -134,7 +83,6 @@ def clases():
 
             #-ADD CONDITIONAL TO START THE INPUT TO MAKE TASK
         else:
-            #todos.append(f'{test_inp.capitalize()}')
             todos.append(f'{t.on_maroon2}{t.underline(ip.capitalize())}{t.on_maroon2}')
             
             print(banner)
@@ -142,21 +90,21 @@ def clases():
             for i, todo in enumerate(todos, start=1):
                 print(f'{i}. {todo}')
     print("  ")
-    print('Exit...')
+    print('Session ended...')
     print("  ")
-    #time.sleep(5)
+
+    """
+    Puedes agregar este fragmente si quieres limpiar la terminal al finalizar
+    """
     #print(f'{t.normal} + {t.clear}')
 
     
 if __name__=='__main__':
-    #main()
-    #test()
-    clases()
+    todo_terminal()
 
-# EXAMPLES >>>>>>>>>>
-#print(t.bold('Test')) # bold text
-#print(t.bold_red_on_bright_green('test')) # background green
-#with t.cbreak():
-#        inp= t.inkey() # CAPTURA EL INPUT SI DAR ENTER
-#        print(f'input test: {inp}')    
 
+    """
+     -v1.0 IS WORKING (CREATE TASK AND BREAK THE LOOP)
+    -V1.1 UNDEFINED (ADD RM METHOD, ADD INSERT METHOD, ?)
+    -V1.2 IS WORKING (FASTAPI, SQLITE, STREAMLIT)
+    """
