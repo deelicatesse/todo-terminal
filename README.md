@@ -25,5 +25,5 @@ python3 main.py
 - Interfaz simple y accesible.
 
 
-## Img 
-![Minimal Todo Manager en uso]()
+## img 
+![Minimal Todo Manager en uso](https://github.com/deelicatesse/todo-terminal/blob/4c265598fcb2222e1416d38242331a9ed624a462/ss.png)
