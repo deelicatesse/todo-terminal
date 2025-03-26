@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 
 
-## Ejecucioción
+## Ejecución
 ```bash 
 cd app
 python3 main.py
@@ -24,6 +24,4 @@ python3 main.py
 - Crear y gestionar notas desde la terminal.
 - Interfaz simple y accesible.
 
-## ss
-![Minimal Todo Manager en uso](/home/t1000/Documentos/bls_examples/test1/ss.png)
 

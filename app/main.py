@@ -45,8 +45,8 @@ class Task:
         """
         add view
         """
-        bg= f'{t.home}{t.on_maroon2}{t.clear}'
-        bn= t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit ")))
+        bg= f'{t.home}{t.on_maroon2}{t.clear}' # you can change the theme in this line
+        bn= t.black_on_orchid1(t.center(t.bold("Add a taks or write ':q' to exit "))) 
         return bg + bn
     
     def corrector_bg(self):
@@ -77,11 +77,7 @@ def todo_terminal():
         # ADD CONDITIONAL TO BREAK THE LOOP
         if ip.lower() == ':q':
             break
-        #elif ip.lower() == ':rm':
-        #    rmove= version_v1.remove_task() >>>>>>  ARREGLAR PARA LA V1.1 RM METHOD
-        #    print(t.clear, t.normal)
-
-            #-ADD CONDITIONAL TO START THE INPUT TO MAKE TASK
+    
         else:
             todos.append(f'{t.on_maroon2}{t.underline(ip.capitalize())}{t.on_maroon2}')
             
@@ -104,7 +100,7 @@ if __name__=='__main__':
 
 
     """
-     -v1.0 IS WORKING (CREATE TASK AND BREAK THE LOOP)
+    -v1.0 IS WORKING (CREATE TASK AND BREAK THE LOOP)
     -V1.1 UNDEFINED (ADD RM METHOD, ADD INSERT METHOD, ?)
     -V1.2 IS WORKING (FASTAPI, SQLITE, STREAMLIT)
     """
