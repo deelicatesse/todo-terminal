@@ -1,4 +1,4 @@
-# Minimal Todo Manager
+# CLI notes manager
 
 Una herramienta básica para tomar notas durante una sesión de trabajo, directamente desde la terminal.
 
